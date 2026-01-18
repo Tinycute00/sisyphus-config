@@ -21,6 +21,8 @@
 ### 1. 事前準備
 *   已安裝 [OpenCode](https://opencode.ai)。
 *   **GitHub Personal Access Token** (Classic)，權限需包含 `repo` 和 `user`。
+*   **Python 3.10+** (用於運行 Ohm MCP)。
+*   請先執行 `pip install ohm-mcp`。
 
 ### 2. 設定環境變數
 在使用 Sisyphus 之前，你**必須**設定此環境變數 (GitHub MCP 需要)：

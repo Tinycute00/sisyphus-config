@@ -24,7 +24,21 @@ git clone --depth 1 $REPO_URL $TEMP_DIR
 
 # 3. Install Config
 mkdir -p "$CONFIG_DIR"
-cp "$TEMP_DIR/opencode.json" "$CONFIG_DIR/opencode.json"
+CONFIG_FILE="$CONFIG_DIR/opencode.json"
+cp "$TEMP_DIR/opencode.json" "$CONFIG_FILE"
+
+# --- Auto-Detect Ohm MCP ---
+echo "🔍 Detecting ohm-mcp installation..."
+SITE_PACKAGES=$(python3 -c "import site; print(site.getsitepackages()[0])" 2>/dev/null || python -c "import site; print(site.getsitepackages()[0])")
+
+if [ -n "$SITE_PACKAGES" ]; then
+    # Replace placeholder
+    sed -i "s|{PYTHON_SITE_PACKAGES}|$SITE_PACKAGES|g" "$CONFIG_FILE"
+    echo "✅ Configured ohm-mcp path: $SITE_PACKAGES"
+else
+    echo "⚠️  Could not detect Python site-packages. Ohm MCP might need manual config."
+fi
+# ---------------------------
 
 # 4. Install Skills
 mkdir -p "$SKILLS_DIR"

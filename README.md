@@ -22,6 +22,8 @@
 ### 1. Prerequisites
 *   [OpenCode](https://opencode.ai) installed.
 *   **GitHub Personal Access Token** (Classic) with `repo` and `user` scopes.
+*   **Python 3.10+** (for Ohm MCP).
+*   Run `pip install ohm-mcp` before installing this config.
 
 ### 2. Set Environment Variable
 You **MUST** set this before using Sisyphus (for GitHub MCP):

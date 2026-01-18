@@ -34,11 +34,10 @@
     "ohm": {
       "type": "local",
       "command": [
-        "npx",
-        "-y",
-        "ohm-mcp"
+        "python",
+        "{PYTHON_SITE_PACKAGES}/ohm_mcp/server.py"
       ],
-      "enabled": false
+      "enabled": true
     }
   },
   "provider": {
