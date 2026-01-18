@@ -2,60 +2,70 @@
 
 > "One must imagine Sisyphus happy... and productive."
 
-This is the configuration repository for **Sisyphus**, a high-performance, professional-grade AI coding agent setup for OpenCode. It transforms a standard AI assistant into a disciplined senior engineering team.
+**Sisyphus Config** turns your OpenCode agent into a **Professional Engineering Team**. It integrates strict QA processes, formal RFC specs, and 12-factor reliability principles directly into your workflow.
+
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Platform](https://img.shields.io/badge/platform-OpenCode-green)
+
+[中文說明 (Chinese)](README_zh-TW.md)
 
 ## 🚀 Features
 
-This configuration enables the "Professional Team" mode:
+*   **🕵️ Agent-as-a-Judge**: A strict QA gatekeeper that performs double-pass reviews (Spec Compliance + Code Quality).
+*   **📝 Technical Specs (RFCs)**: Forces a formal "Request for Comments" process before implementation.
+*   **🛡️ 12-Factor Agents**: Best practices for building reliable AI systems.
+*   **⚡ Superpowers**: Pre-loaded skills for TDD, Brainstorming, and Planning.
+*   **🔌 Remote MCP**: Pre-configured GitHub, Context7, and Grep MCP servers.
 
-*   **Agent-as-a-Judge**: A strict QA gatekeeper skill that performs double-pass reviews (Spec Compliance + Implementation Quality).
-*   **Technical Specs (RFCs)**: A formal process for generating Request for Comments documents before coding.
-*   **12-Factor Agents**: Integration of reliability principles.
-*   **Superpowers**: Pre-configured `obra/superpowers` plugin with TDD, Brainstorming, and Planning skills.
-*   **Remote MCP**: Pre-configured GitHub, Context7, and Grep MCP servers for deep context.
+## 💿 Installation
 
-## 📦 Contents
+### 1. Prerequisites
+*   [OpenCode](https://opencode.ai) installed.
+*   **GitHub Personal Access Token** (Classic) with `repo` and `user` scopes.
 
-*   `opencode.json`: Optimized configuration with remote MCP servers.
-*   `superpowers/skills/`: Custom skills including:
-    *   `agent-as-a-judge`: The strict reviewer.
-    *   `writing-technical-specs`: The architect.
-    *   `brainstorming`: The creative lead.
-*   `EVOLUTION-SUMMARY.md`: A log of how this agent evolved.
+### 2. Set Environment Variable
+You **MUST** set this before using Sisyphus (for GitHub MCP):
 
-## 🛠 Installation
+**Windows (PowerShell):**
+```powershell
+[System.Environment]::SetEnvironmentVariable('GITHUB_PERSONAL_ACCESS_TOKEN', 'ghp_your_token_here', 'User')
+# Restart your terminal after this
+```
 
-1.  **Backup your existing config**:
-    ```bash
-    mv ~/.config/opencode/opencode.json ~/.config/opencode/opencode.json.bak
-    ```
+**Mac/Linux:**
+```bash
+export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_your_token_here"
+```
 
-2.  **Clone this repo**:
-    ```bash
-    git clone https://github.com/YOUR_USERNAME/sisyphus-config.git ~/sisyphus-config
-    ```
+### 3. One-Click Install
 
-3.  **Install Config**:
-    ```bash
-    cp ~/sisyphus-config/opencode.json ~/.config/opencode/
-    ```
+**Windows (PowerShell):**
+```powershell
+iwr https://raw.githubusercontent.com/Tinycute00/sisyphus-config/main/install.ps1 | iex
+```
 
-4.  **Install Skills**:
-    ```bash
-    mkdir -p ~/.config/opencode/superpowers/skills
-    cp -r ~/sisyphus-config/superpowers/skills/* ~/.config/opencode/superpowers/skills/
-    ```
+**Mac/Linux:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/Tinycute00/sisyphus-config/main/install.sh | bash
+```
 
-5.  **Setup Environment Variables**:
-    You MUST set `GITHUB_PERSONAL_ACCESS_TOKEN` in your system environment variables for the GitHub MCP server to work.
+---
 
-## 🧠 Usage
+## 🧠 Usage Guide for LLMs
 
-Once installed, you can ask Sisyphus to:
+If you are an AI agent installing this for a user, follow these instructions:
 
-*   "Judge this code" -> Triggers Agent-as-a-Judge.
-*   "Write an RFC for feature X" -> Triggers Technical Specs skill.
-*   "Brainstorm a solution" -> Triggers structured brainstorming.
+1.  **Check for Token**: Verify if `GITHUB_PERSONAL_ACCESS_TOKEN` is set in the environment.
+2.  **Execute Installer**: Run the appropriate install script for the OS.
+3.  **Verify**: Run `opencode mcp list` to confirm `github` server is connected.
+
+## 🤖 Available Skills
+
+Once installed, Sisyphus has these new capabilities:
+
+*   **`use_skill superpowers:agent-as-a-judge`**: Review code with extreme scrutiny.
+*   **`use_skill superpowers:writing-technical-specs`**: Draft an RFC for a new feature.
+*   **`use_skill superpowers:brainstorming`**: Discuss ideas structurally.
 
 ## 📄 License
 
