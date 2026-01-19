@@ -1,4 +1,4 @@
-# Workflow: Phase 2A - Exploration
+# Workflow: Phase 2A - Exploration (Refined)
 
 **Goal**: Gather context without blocking execution.
 
@@ -17,7 +17,12 @@
 3. Check background results (`background_output`).
 4. **Synthesize**: Combine internal code reality with external best practices.
 
-## Stop Condition
-- Found the file/function.
-- Found the documentation.
-- **Limit**: Max 3 rounds of search. Don't rabbit hole.
+## Search Strategy
+1. **Breadth-First**: Scan file names and directory structure.
+2. **Depth-First**: Read implementation details of core modules.
+3. **Cross-Reference**: Check usage of core modules in other files.
+
+## Stop Conditions
+- **Success**: Found the file/function AND understand how it's called.
+- **Success**: Found the documentation AND a working example.
+- **Failure**: 3 rounds of search yielded no results. -> **Escalate** to User or Oracle.
