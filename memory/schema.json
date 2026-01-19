@@ -2,15 +2,23 @@
   "entities": [
     {
       "type": "ProjectPattern",
-      "properties": ["name", "description", "files_involved"]
+      "properties": ["name", "description", "files_involved", "example_snippet"]
     },
     {
       "type": "UserPreference",
-      "properties": ["topic", "preference_value"]
+      "properties": ["topic", "preference_value", "context"]
     },
     {
       "type": "ArchitectureDecision",
-      "properties": ["decision", "reasoning", "status"]
+      "properties": ["title", "status", "alternatives_considered", "final_decision", "date"]
+    },
+    {
+      "type": "ResolvedBug",
+      "properties": ["error_message", "root_cause", "fix_description", "files_changed"]
+    },
+    {
+      "type": "Constraint",
+      "properties": ["description", "source_file", "severity"]
     }
   ],
   "relations": [
@@ -23,6 +31,16 @@
       "from": "ArchitectureDecision",
       "to": "ProjectPattern",
       "type": "establishes"
+    },
+    {
+      "from": "ResolvedBug",
+      "to": "File",
+      "type": "occurred_in"
+    },
+    {
+      "from": "Constraint",
+      "to": "ArchitectureDecision",
+      "type": "enforces"
     }
   ]
 }
