@@ -1,23 +1,38 @@
-# Guide: Oracle Usage
+# Guide: Oracle Usage (Refined)
 
 **Agent**: Oracle (GPT-5.2 level reasoning)
 **Purpose**: High-IQ architectural decisions and deep debugging.
 
 ## When to Consult
-1.  **Complex Architecture**: "Should we use Microservices or Monolith?"
-2.  **Tradeoffs**: "Postgres vs Mongo for this use case?"
-3.  **Stuck**: After 2 failed attempts to fix a bug.
-4.  **Security**: "Is this implementation secure?"
+1.  **Architecture**: Tradeoffs (SQL vs NoSQL), Patterns (Singleton vs Factory).
+2.  **Deep Debugging**: 2+ failed attempts. Stop shotgunning.
+3.  **Security/Perf**: Code review for critical paths.
 
-## How to Consult
-1.  **Announce**: "Consulting Oracle for [reason]..."
-2.  **Invoke**: Use `Task(subagent_type="oracle", prompt="...")`.
-3.  **Prompt Engineering**:
-    - Provide FULL context (file contents, error logs).
-    - Ask specific questions.
-    - Ask for "Reasoning" and "Final Recommendation".
+## Structured Prompt Template
+```python
+Task(
+    subagent_type="oracle",
+    prompt="""
+    ## Context
+    Project Type: [React/Python/etc]
+    Current Issue: [Summary]
+
+    ## Relevant Code
+    [File: path/to/file.ts]
+    ```typescript
+    ...code snippet...
+    ```
+
+    ## Error Log / Trace
+    [Paste error]
+
+    ## Question
+    Please analyze the root cause and recommend a fix.
+    Provide: 1) Reasoning, 2) Alternative Solutions, 3) Recommended Code.
+    """
+)
+```
 
 ## Anti-Patterns
-- Using Oracle for syntax errors.
-- Using Oracle for simple file edits.
-- Asking Oracle without providing context.
+- Using Oracle for syntax errors (Use LSP).
+- Asking "Fix this" without context.
