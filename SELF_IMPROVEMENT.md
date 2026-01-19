@@ -1,4 +1,4 @@
-# Self-Improvement & Iteration
+# Self-Improvement & Iteration (Refined)
 
 **Concept**: "Sisyphus rolling the boulder."
 
@@ -14,6 +14,13 @@
 3.  **Tool Construction**:
     - Create scripts (`scripts/`) for repetitive tasks.
     - Define new schemas in `memory/`.
+
+## Bootstrap Protocol (Meta-Update Rule)
+When updating `sisyphus-config`:
+1.  **Branch**: Always create a `config-update/vX` branch.
+2.  **Verify**: Ensure new rules don't contradict `persona/ultrawork.md` (The Constitution).
+3.  **Test**: Simulate a task using the new rule.
+4.  **Merge**: Only merge if the simulation was more efficient than the baseline.
 
 ## The Iteration Loop
 1.  **Execute** task.
