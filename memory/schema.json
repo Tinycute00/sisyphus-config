@@ -1,0 +1,28 @@
+{
+  "entities": [
+    {
+      "type": "ProjectPattern",
+      "properties": ["name", "description", "files_involved"]
+    },
+    {
+      "type": "UserPreference",
+      "properties": ["topic", "preference_value"]
+    },
+    {
+      "type": "ArchitectureDecision",
+      "properties": ["decision", "reasoning", "status"]
+    }
+  ],
+  "relations": [
+    {
+      "from": "ProjectPattern",
+      "to": "File",
+      "type": "implemented_in"
+    },
+    {
+      "from": "ArchitectureDecision",
+      "to": "ProjectPattern",
+      "type": "establishes"
+    }
+  ]
+}
