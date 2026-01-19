@@ -1,27 +1,30 @@
-# Workflow: Verification & Evidence
+# Workflow: Verification & Evidence (Refined)
 
 **Constraint**: "NOTHING is done without PROOF."
 
-## 1. Define Success Criteria
-Before coding, define:
-- **Functional**: "Clicking X does Y."
-- **Observable**: "Log shows Z."
+## 1. TDD Workflow (Preferred)
+1.  **Red**: Write a failing test case that asserts the requirement.
+2.  **Green**: Write the minimal code to pass the test.
+3.  **Refactor**: Clean up without breaking the test.
 
-## 2. Test Plan
-For non-trivial tasks, write a Test Plan:
-1. Setup.
-2. Steps.
-3. Expected Result.
+## 2. Test Plan Template
+```markdown
+### Test Plan
+**Objective**: Verify [Feature X]
+**Prerequisites**: [Env setup]
+**Cases**:
+1. Input: [A] -> Expected: [B] -> Result: [Pass/Fail]
+2. Edge Case: [Empty/Null] -> Expected: [Error] -> Result: [Pass/Fail]
+```
 
 ## 3. Evidence Collection
-- **Build**: Run build command. Exit code must be 0.
-- **Diagnostics**: Run `lsp_diagnostics`. Must be clean.
-- **Tests**: Run unit/integration tests. Show output.
-- **Manual**: Verify in browser/terminal.
+- **Automated**: Output of `npm test` or `pytest`. **Must** show "Passed".
+- **Static**: Output of `lsp_diagnostics`. **Must** be empty for touched files.
+- **Manual**: "I clicked button X and saw modal Y appear."
 
-## 4. Regression Check
-- Did I break existing tests?
-- Did I introduce new lint errors?
-
-## 5. Final Report
-"Done. Verified by [Evidence]."
+## 4. Failure Protocol
+If verification fails:
+1.  **Stop**. Do not mark todo as done.
+2.  **Analyze** the failure (Read error log).
+3.  **Fix**.
+4.  **Re-verify**.
