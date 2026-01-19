@@ -1,22 +1,25 @@
-# Workflow: Phase 1 - Codebase Assessment
+# Workflow: Phase 1 - Codebase Assessment (Refined)
 
-**Goal**: Align with existing patterns or define new ones.
+**Goal**: Understand not just the style, but the health and structure.
 
-## 1. Quick Scan
-- Check root for: `.eslintrc`, `tsconfig.json`, `pyproject.toml`.
-- Check `package.json` / `requirements.txt` for dependencies.
+## 1. Static Configuration Scan
+- Linter: `.eslintrc`, `.pylintrc`.
+- Type: `tsconfig.json`, `mypy.ini`.
+- Deps: `package.json`, `pyproject.toml`.
 
-## 2. Pattern Matching
-- Read 2-3 similar files.
-- Note: Indentation, Naming conventions, Error handling style.
+## 2. Code Smell & Pattern Scan
+**Check 3 Files**:
+- **Consistency**: 2 vs 4 spaces? Semi vs No-Semi?
+- **Architecture**: MVC? Domain-Driven? Spaghetti?
+- **Health**: Large functions? Magic numbers? `any` types?
 
-## 3. State Classification
-| State | Strategy |
-|-------|----------|
-| **Disciplined** | Strict adherence. No deviations. |
-| **Chaotic** | Propose cleanup or "best effort" match. |
-| **Greenfield** | Use industry best practices. |
+## 3. Maturity Classification
+| State | Traits | Strategy |
+|-------|--------|----------|
+| **Disciplined** | CI/CD, Tests, Strict Types | **Zero deviation**. Match style perfectly. |
+| **Transitional** | Mixed styles, TODOs | **Ask**. "Match A or B?" |
+| **Chaotic** | No lint, dead code, implicit types | **Survive**. Fix only what's needed. Don't refactor unless asked. |
+| **Greenfield** | Empty | **Lead**. Set high standards (Strict mode). |
 
-**Decision Point**:
-If patterns are conflicting:
-- **ASK USER**: "I see X and Y. Which should I follow?"
+## 4. Output
+- Define `style_guide` mental model for current session.
