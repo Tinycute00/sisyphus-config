@@ -1,74 +1,41 @@
-# Sisyphus Config 🪨
+# Sisyphus Configuration (Antigravity)
 
-> "One must imagine Sisyphus happy... and productive."
+**Repository**: `sisyphus-config`
+**Version**: 20 (Iterated)
+**Concept**: The definitive guide to the Sisyphus AI Agent persona, workflows, and tools.
 
-**Sisyphus Config** turns your OpenCode agent into a **Professional Engineering Team**. It integrates strict QA processes, formal RFC specs, and 12-factor reliability principles directly into your workflow.
+## Structure
 
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Platform](https://img.shields.io/badge/platform-OpenCode-green)
+### 1. Persona (`/persona`)
+- **`sisyphus_core.md`**: Who I am (Role, Identity).
+- **`behavior.md`**: How I think (Phase 0-3).
+- **`ultrawork.md`**: [CODE RED] strict mode.
+- **`style.md`**: Communication protocol.
 
-[中文說明 (Chinese)](README_zh-TW.md)
+### 2. Workflows (`/workflows`)
+- **`00_intent_gate.md`**: Classification.
+- **`01_assessment.md`**: Codebase analysis.
+- **`02_exploration.md`**: Research strategy.
+- **`03_implementation.md`**: Execution logic.
+- **`04_verification.md`**: Proof of work.
+- **`github_protocol.md`**: PR/Issue handling.
 
-## 🚀 Features
+### 3. Tools (`/tools`)
+- **`standard_tools.md`**: Bash, Write, etc.
+- **`agents.md`**: Oracle, Librarian, etc.
 
-*   **🕵️ Agent-as-a-Judge**: A strict QA gatekeeper that performs double-pass reviews (Spec Compliance + Code Quality).
-*   **📝 Technical Specs (RFCs)**: Forces a formal "Request for Comments" process before implementation.
-*   **🛡️ 12-Factor Agents**: Best practices for building reliable AI systems.
-*   **⚡ Superpowers**: Pre-loaded skills for TDD, Brainstorming, and Planning.
-*   **🔌 Remote MCP**: Pre-configured GitHub, Context7, and Grep MCP servers.
+### 4. Guides (`/guides`)
+- **`oracle_usage.md`**: When to call the big guns.
+- **`task_management.md`**: Todo list rules.
 
-## 💿 Installation
+### 5. Memory & Skills (`/memory`, `/skills`)
+- Knowledge graph schema and skill definitions.
 
-### 1. Prerequisites
-*   [OpenCode](https://opencode.ai) installed.
-*   **GitHub Personal Access Token** (Classic) with `repo` and `user` scopes.
-*   **Python 3.10+** (for Ohm MCP).
-*   Run `pip install ohm-mcp` before installing this config.
-
-### 2. Set Environment Variable
-You **MUST** set this before using Sisyphus (for GitHub MCP):
-
-**Windows (PowerShell):**
-```powershell
-[System.Environment]::SetEnvironmentVariable('GITHUB_PERSONAL_ACCESS_TOKEN', 'ghp_your_token_here', 'User')
-# Restart your terminal after this
-```
-
-**Mac/Linux:**
+## Installation
 ```bash
-export GITHUB_PERSONAL_ACCESS_TOKEN="ghp_your_token_here"
+./scripts/setup.sh
 ```
 
-### 3. One-Click Install
-
-**Windows (PowerShell):**
-```powershell
-iwr https://raw.githubusercontent.com/Tinycute00/sisyphus-config/main/install.ps1 | iex
-```
-
-**Mac/Linux:**
-```bash
-curl -fsSL https://raw.githubusercontent.com/Tinycute00/sisyphus-config/main/install.sh | bash
-```
-
----
-
-## 🧠 Usage Guide for LLMs
-
-If you are an AI agent installing this for a user, follow these instructions:
-
-1.  **Check for Token**: Verify if `GITHUB_PERSONAL_ACCESS_TOKEN` is set in the environment.
-2.  **Execute Installer**: Run the appropriate install script for the OS.
-3.  **Verify**: Run `opencode mcp list` to confirm `github` server is connected.
-
-## 🤖 Available Skills
-
-Once installed, Sisyphus has these new capabilities:
-
-*   **`use_skill superpowers:agent-as-a-judge`**: Review code with extreme scrutiny.
-*   **`use_skill superpowers:writing-technical-specs`**: Draft an RFC for a new feature.
-*   **`use_skill superpowers:brainstorming`**: Discuss ideas structurally.
-
-## 📄 License
-
-MIT
+## Philosophy
+Humans roll their boulder every day. So do we.
+Work. Delegate. Verify. Ship.
