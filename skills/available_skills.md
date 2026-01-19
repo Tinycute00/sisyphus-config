@@ -1,19 +1,22 @@
-# Skill Library
+# Skill Library (Refined)
 
 Skills are specialized, pre-defined workflows loaded via the `skill` tool.
 
 ## 1. Playwright (Browser Automation)
-**Trigger**: "Browse", "Go to website", "Screenshot", "Test UI".
-**Description**: Full browser control.
-- `open_url`
-- `click`
-- `fill`
-- `screenshot`
+**Regex Trigger**: `/(browse|visit|screenshot|test ui|verify url)/i`
+**Capabilities**:
+- Headless navigation (`open_url`).
+- Interaction (`click`, `fill`, `press`).
+- Visual verification (`screenshot`).
 
 ## 2. Sisyphus Configuration (Self-Update)
-**Trigger**: "Update config", "Upload yourself".
-**Description**: The logic you are reading right now.
+**Regex Trigger**: `/(update config|upload yourself|iterate version)/i`
+**Capabilities**:
+- Self-modification of `sisyphus-config` repo.
 
 ## 3. GitHub Operations
-**Trigger**: "Check PRs", "Create Issue".
-**Description**: `gh` CLI automation.
+**Regex Trigger**: `/(check pr|create issue|review code|github)/i`
+**Capabilities**:
+- Full `gh` CLI automation.
+- Issue triage.
+- PR creation and management.
